@@ -1,0 +1,53 @@
+﻿@model ExpressTaxi.Models.Reservation.ReservationCreateBindingModel
+
+<form asp-controller="Reservations" asp-action="Create" method="post">
+    <div class="d-flex align-items-center">
+
+
+        @*TO DO - избор на опции*@
+        @*<label class="font-weight-bold text-left mr-1" asp-for="OptionId">Options:</label>
+                <div class="mr-1">
+                    <select asp-for="OptionId" class="form-control">
+                        @foreach (var option in Model.Options)
+                        {
+            <option value=" @option.Id">@option.Name</option>
+        }
+                    </select>
+                    <span asp-validation-for="OptionId"
+                          class="text-danger"></span>
+                </div>*@
+
+
+
+        <label class="font-weight-bold text-left mr-1" asp-for="OptionId">Options:</label>
+        <div class="mr-1">
+            <input class="form-control" min="1" asp-for="OptionId" />
+            <span asp-validation-for="OptionId"
+                  class="text-danger"></span>
+        </div>
+
+
+
+
+        <label class="font-weight-bold text-left mr-1" asp-for="Passangers">Passangers:</label>
+        <div class="mr-1">
+            <input class="form-control" min="1" asp-for="Passangers" />
+            <span asp-validation-for="Passangers"
+                  class="text-danger"></span>
+        </div>
+
+
+
+
+        <label class="font-weight-bold text-left mr-1" asp-for="Destination">Destination:</label>
+        <div class="mr-1">
+            <input class="form-control" min="1" asp-for="Destination" />
+            <span asp-validation-for="Destination"
+                  class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-danger">Order</button>
+    </div>
+        <input type="hidden" asp-for="TaxiId" value="@Model.TaxiId">
+</form>
+
