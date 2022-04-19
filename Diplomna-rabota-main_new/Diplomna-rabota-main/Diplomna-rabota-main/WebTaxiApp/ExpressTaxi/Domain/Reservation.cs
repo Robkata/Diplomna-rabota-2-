@@ -23,8 +23,5 @@ namespace ExpressTaxi.Domain
         public string Status { get; set; }
         public int OptionId { get; set; }
         public virtual Option Option { get; set; }
-
-
-       
     }
 }

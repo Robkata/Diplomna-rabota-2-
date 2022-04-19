@@ -96,44 +96,29 @@ namespace ExpressTaxi.Controllers
 
         public IActionResult Edit(int? id)
         {
-
             Reservation item = context.Reservations.Find(id);
             if (item == null)
             {
                 return NotFound();
             }
-
             
             ReservationEditBindingModel reservation = new ReservationEditBindingModel()
             {
                 Id = item.Id,
-                Status = item.Status,
-                
-            };
-            
-               
+                Status = item.Status
+            }; 
             return View(reservation);
-
-
-
         }
 
         [HttpPost]
         public IActionResult Edit(ReservationEditBindingModel bindingModel)
         {
-           
-
-
-
-
             if (ModelState.IsValid)
             {
-                
                 Reservation reservation = new Reservation
                 {
                     Id=bindingModel.Id,
-
-                    Status = bindingModel.Status,
+                    Status = bindingModel.Status
                 };
                 context.Reservations.Update(reservation);
                 context.SaveChanges();

@@ -13,11 +13,8 @@ namespace ExpressTaxi.Domain
         {
             this.Id = Guid.NewGuid().ToString();
         }
-
         public string Id { get; set; }
-
         public virtual Taxi Taxies { get; set; }
-
         public string Extension { get; set; }
     }
 }
