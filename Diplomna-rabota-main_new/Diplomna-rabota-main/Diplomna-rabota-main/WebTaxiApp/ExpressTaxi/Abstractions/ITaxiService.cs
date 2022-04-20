@@ -26,5 +26,9 @@ namespace ExpressTaxi.Abstractions
         List<Taxi> GetTaxies(string searchStringExtras, string searchStringEngine);
         //List<Product> GetAccessories(string searchStringModel, string searchStringDescription);
 
+        int countTaxies();
+        int countUsers();
+        int countReservations();
+
     }
 }

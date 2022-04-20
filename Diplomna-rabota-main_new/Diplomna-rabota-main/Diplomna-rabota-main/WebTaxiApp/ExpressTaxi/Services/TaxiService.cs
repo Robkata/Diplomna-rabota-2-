@@ -152,5 +152,20 @@ namespace ExpressTaxi.Services
 
             return taxies;
         }
+
+        public int countTaxies()
+        {
+            return _context.Taxies.Count();
+        }
+
+        public int countUsers()
+        {
+            return _context.Users.Count();
+        }
+
+        public int countReservations()
+        {
+            return _context.Reservations.Count();
+        }
     }
 }
