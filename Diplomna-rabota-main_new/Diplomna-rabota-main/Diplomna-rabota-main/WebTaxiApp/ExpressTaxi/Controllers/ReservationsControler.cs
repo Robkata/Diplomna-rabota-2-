@@ -115,14 +115,18 @@ namespace ExpressTaxi.Controllers
         {
             if (ModelState.IsValid)
             {
-                Reservation reservation = new Reservation
-                {
-                    Id=bindingModel.Id,
-                    Status = bindingModel.Status
-                };
+                var reservation= this.context.Reservations.SingleOrDefault(e => e.Id == bindingModel.Id);
+
+                reservation.Status = bindingModel.Status;
+               // Reservation reservation = new Reservation
+                //{
+                //    Id=bindingModel.Id,
+                //    Status = bindingModel.Status,
+                  
+                //};
                 context.Reservations.Update(reservation);
                 context.SaveChanges();
-                return this.RedirectToAction("All");
+                return this.RedirectToAction("Index");
             }
             return View(bindingModel);
         }
